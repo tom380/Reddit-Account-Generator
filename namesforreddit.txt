@@ -1,10 +1,8 @@
-USR: Maria74207 PWD: zmTeCwHYCMLIQqyX
-USR: JohnCa66206 PWD: 5gnxuiTjF2iscMTX
-        "OFlower56185": {
-            "password": "5sJ0aA3RCM0Mwrk1",
+        "Muthial97140": {
+            "password": "yMhyOeLbPZxLftgQ",
             "start_coords": [0, 0]
         },
-        "Heave69533": {
-            "password": "i0mxXZH5pVvOn3aM",
+        "Lymin38550": {
+            "password": "CBuGWfgJVp5Ugkxf",
             "start_coords": [0, 0]
         },

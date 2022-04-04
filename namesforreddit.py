@@ -3,6 +3,8 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import random
 import time
 import re
@@ -44,7 +46,13 @@ driver.find_element_by_id('regUsername').send_keys(finalName)
 driver.find_element_by_id('regPassword').send_keys(password)
 
 # CAPTCHA SOLVER
-time.sleep(10)
+#time.sleep(20)
+#wait = WebDriverWait(driver,300)
+#wait.until(EC.url_changes("https://www.reddit.com/register/"))
+bt_submit = driver.find_element_by_css_selector("[type=submit]")
+#bt_submit = driver.find_elements_by_xpath('//button[normalize-space()="Sign Up"]')
+WebDriverWait(driver, timeout=1000, poll_frequency=1) \
+  .until(EC.staleness_of(bt_submit))
 
 dirname = os.path.dirname(__file__)
 text_file_path = os.path.join(dirname, 'namesforreddit.txt')
