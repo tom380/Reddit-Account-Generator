@@ -11,6 +11,7 @@ import secrets
 import os
 driver = webdriver.Chrome(ChromeDriverManager().install()) # USES CHROMEDRIVERMANAGER TO AUTO UPDATE CHROMEDRIVER
 
+
 # GENERATE PASSWORD
 alphabet = string.ascii_letters + string.digits
 password = ''.join(secrets.choice(alphabet) for i in range(16))
@@ -29,14 +30,6 @@ name = name[:random.randint(5,7)] #KEEPS 5 TO 7 LETTERS OF THE ORIGINAL STRING
 
 
 randomNumber = random.randint(10000,99999)
-
-dirname = os.path.dirname(__file__)
-text_file_path = os.path.join(dirname, 'namesforreddit.txt')
-text_file = open(text_file_path, "a")
-text_file.write("USR: " + name + str(randomNumber) + " PWD: " + password) #OUTPUTS NAME AND NUMBER
-text_file.write("\n")
-text_file.close()
-
 finalName = name+str(randomNumber)
 time.sleep(1)
 # NAME GENERATION FINISHED
@@ -49,5 +42,18 @@ driver.find_element_by_xpath ("//button[contains(text(),'Continue')]").click()
 time.sleep(3)
 driver.find_element_by_id('regUsername').send_keys(finalName)
 driver.find_element_by_id('regPassword').send_keys(password)
+
+# CAPTCHA SOLVER
+
+
+time.sleep(10)
+
+dirname = os.path.dirname(__file__)
+text_file_path = os.path.join(dirname, 'namesforreddit.txt')
+text_file = open(text_file_path, "a")
+#text_file.write("USR: " + name + str(randomNumber) + " PWD: " + password) #OUTPUTS NAME AND NUMBER
+text_file.write("        \"" + name + str(randomNumber) + "\": {\n            \"password\": \"" + password + "\",\n            \"start_coords\": [0, 0]\n        },")
+text_file.write("\n")
+text_file.close()
 
 # driver.close()
