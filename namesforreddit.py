@@ -44,8 +44,6 @@ driver.find_element_by_id('regUsername').send_keys(finalName)
 driver.find_element_by_id('regPassword').send_keys(password)
 
 # CAPTCHA SOLVER
-
-
 time.sleep(10)
 
 dirname = os.path.dirname(__file__)
